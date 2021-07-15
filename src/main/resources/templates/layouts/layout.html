@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html
+        lagn="ko"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+<meta charset="UTF-8" />
+<!-- 공통으로 쓰이는 css파일을넣는다.-->
+<title>우리집 앞마당 모니터링</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link href="/css/bootstrap_min.css" rel="stylesheet">
+<link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
+      rel="stylesheet">
+<link href="/css/font-awesome.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+<link href="/css/pages/dashboard.css" rel="stylesheet">
+
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
+</head>
+
+<header th:replace="fragments/header :: headerFragment"></header>
+
+<div layout:fragment="content"></div>
+
+<footer th:replace="fragments/footer :: footerFragment"></footer>
+</html>
