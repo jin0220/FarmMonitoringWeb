@@ -10,10 +10,10 @@
     <script src="/js/bootstrap.js"></script>
     <script language="javascript" type="text/javascript" src="/js/full-calendar/fullcalendar.min.js"></script>
 
-    <script src="js/base.js"></script>
+    <script src="/js/base.js"></script>
     <script>
-<?php include 'db/soil_chart.php';?>
-<?php include 'db/calendar.php';?>
+<!--<?php include 'db/soil_chart.php';?>-->
+<!--<?php include 'db/calendar.php';?>-->
     var lineChartData = { //토양수분
       labels: [<?php echo $str_soil_3h;?>],
       datasets: [
@@ -500,37 +500,37 @@ function check_input(){ //폼 유효성 검사
                                 <div class="widget-content">
                                     <h6 class="bigstats">아이콘을 통해 현재 농작물의 상태를 한눈에 확인하세요.</h6>
                                     <div id="big_stats" class="cf">
-                                        <?php
-                        include "db/dbcon.php";
+<!--                                        <?php-->
+<!--                        include "db/dbcon.php";-->
 
-                        //날짜
-                        $sql_date = "select start from user_plant ";
-                        $sql_date.= "where id = '$userid' and plant3 = '$plant3' ORDER BY start DESC";
-                        $result_sql_date = mysqli_query($connect,$sql_date);
-                        $row_sql_date = mysqli_fetch_array($result_sql_date);
+<!--                        //날짜-->
+<!--                        $sql_date = "select start from user_plant ";-->
+<!--                        $sql_date.= "where id = '$userid' and plant3 = '$plant3' ORDER BY start DESC";-->
+<!--                        $result_sql_date = mysqli_query($connect,$sql_date);-->
+<!--                        $row_sql_date = mysqli_fetch_array($result_sql_date);-->
 
-                        if($row_sql_date['start'] != ''){
-                            $today = strtotime(date("Y-m-d"));
-                            $start = explode(" ", $row_sql_date['start']);
-                            $start_date = strtotime($start[0]);
-                            $ing = date("d",$today - $start_date);
-                        }
-                        else{
-                            $ing = 0;
-                        }
+<!--                        if($row_sql_date['start'] != ''){-->
+<!--                            $today = strtotime(date("Y-m-d"));-->
+<!--                            $start = explode(" ", $row_sql_date['start']);-->
+<!--                            $start_date = strtotime($start[0]);-->
+<!--                            $ing = date("d",$today - $start_date);-->
+<!--                        }-->
+<!--                        else{-->
+<!--                            $ing = 0;-->
+<!--                        }-->
 
-                        //토양 수분
-                        $sql_state_soil = "select moisture from soil ";
-                        $sql_state_soil.="where farm_id = '$farm_id' and plant_type = '$plant3' ORDER BY date DESC";//현재 키우는 품종에서 최근 데이터 가져오기
-                        $result_sql_state_soil = mysqli_query($connect,$sql_state_soil);
-                        $row_sql_state_soil = mysqli_fetch_array($result_sql_state_soil);
+<!--                        //토양 수분-->
+<!--                        $sql_state_soil = "select moisture from soil ";-->
+<!--                        $sql_state_soil.="where farm_id = '$farm_id' and plant_type = '$plant3' ORDER BY date DESC";//현재 키우는 품종에서 최근 데이터 가져오기-->
+<!--                        $result_sql_state_soil = mysqli_query($connect,$sql_state_soil);-->
+<!--                        $row_sql_state_soil = mysqli_fetch_array($result_sql_state_soil);-->
 
-                        //온습도
-                        $sql_state_temp = "select temperature, humidity from temperature ";
-                        $sql_state_temp.= "where farm_id = '$farm_id' and plant_type = '$plant3' ORDER BY date DESC";
-                        $result_sql_state_temp = mysqli_query($connect,$sql_state_temp);
-                        $row_sql_state_temp = mysqli_fetch_array($result_sql_state_temp);
-                    ?>
+<!--                        //온습도-->
+<!--                        $sql_state_temp = "select temperature, humidity from temperature ";-->
+<!--                        $sql_state_temp.= "where farm_id = '$farm_id' and plant_type = '$plant3' ORDER BY date DESC";-->
+<!--                        $result_sql_state_temp = mysqli_query($connect,$sql_state_temp);-->
+<!--                        $row_sql_state_temp = mysqli_fetch_array($result_sql_state_temp);-->
+<!--                    ?>-->
                                         <div class="stat">
                                             <div class="value_title">생장 기간</div>
                                             <div class="value">D+<?=$ing?></div>
