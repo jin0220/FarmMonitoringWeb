@@ -4,33 +4,29 @@
       layout:decorate="~{layouts/layout}">
 <head>
 
-    <script src="/js/jquery-1.7.2.min.js"></script>
-    <script src="/js/excanvas.min.js"></script>
-    <script src="/js/chart.min.js" type="text/javascript"></script>
-    <script src="/js/bootstrap.js"></script>
-    <script language="javascript" type="text/javascript" src="/js/full-calendar/fullcalendar.min.js"></script>
 
-    <script src="/js/base.js"></script>
     <script>
-<!--<?php include 'db/soil_chart.php';?>-->
-<!--<?php include 'db/calendar.php';?>-->
+    alert('hi');
+
     var lineChartData = { //토양수분
-      labels: [<?php echo $str_soil_3h;?>],
+      //labels: [<?php echo $str_soil_3h;?>],
+      labels: ["00시", "03시", "06시", "09시", "12시", "15시", "18시", "21시"],
       datasets: [
-        // {
-        //     fillColor: "rgba(220,220,220,0.5)",
-        //     strokeColor: "rgba(220,220,220,1)",
-        //     pointColor: "rgba(220,220,220,1)",
-        //     pointStrokeColor: "#fff",
-        //     data: [65, 59, 90, 81, 56, 55, 40]
-        // },
-        {
-          fillColor: "rgba(151,187,205,0.5)",
-          strokeColor: "rgba(151,187,205,1)",
-          pointColor: "rgba(151,187,205,1)",
-          pointStrokeColor: "#fff",
-          data: [<?php echo $str_soil_humidity;?>]
-        }
+         {
+             fillColor: "rgba(220,220,220,0.5)",
+             strokeColor: "rgba(220,220,220,1)",
+             pointColor: "rgba(220,220,220,1)",
+             pointStrokeColor: "#fff",
+             data: [65, 59, 90, 81, 56, 55, 40]
+         }
+        //,
+        //{
+        //  fillColor: "rgba(151,187,205,0.5)",
+        //  strokeColor: "rgba(151,187,205,1)",
+        //  pointColor: "rgba(151,187,205,1)",
+        //  pointStrokeColor: "#fff",
+        //  data: [<?php echo $str_soil_humidity;?>]
+        //}
       ]
 
     }
@@ -46,17 +42,17 @@
     var myLine = new Chart(document.getElementById("area-chart").getContext("2d")).Line(lineChartData,options);
 
     var lineChartData2 = { //온습도
-      labels: [<?php echo $str_3h;?>],
-    //   labels: ["00시", "03시", "06시", "09시", "12시", "15시", "18시", "21시"],
+      //labels: [<?php echo $str_3h;?>],
+      labels: ["00시", "03시", "06시", "09시", "12시", "15시", "18시", "21시"],
       datasets: [
         {
           fillColor: "rgba(220,220,220,0.5)",
           strokeColor: "rgba(220,220,220,1)",
           pointColor: "rgba(220,220,220,1)",
           pointStrokeColor: "#fff",
-          data: [<?php echo $str_temperature;?>],
+          //data: [<?php echo $str_temperature;?>],
 
-        //   data: [28, 48, 40, 19, 96, 27, 100]
+          data: [28, 48, 40, 19, 96, 27, 100]
         }
         // ,
         // {
@@ -81,17 +77,20 @@
     var myLine = new Chart(document.getElementById("area-chart2").getContext("2d")).Line(lineChartData2,options);
 
     var barChartData = { //월별 통계
-      labels: [<?php echo $str_soil_m;?>],
+      //labels: [<?php echo $str_soil_m;?>],
+      labels: ["00시", "03시", "06시", "09시", "12시", "15시", "18시", "21시"],
       datasets: [
         {
           fillColor: "rgba(220,220,220,0.5)",
           strokeColor: "rgba(220,220,220,1)",
-          data: [<?php echo $str_soil_m_humidity;?>] //회색 그래프, 토양수분 월별 평균
+          //data: [<?php echo $str_soil_m_humidity;?>] //회색 그래프, 토양수분 월별 평균
+          data: [28, 48, 40, 19, 96, 27, 100]
         },
         {
           fillColor: "rgba(151,187,205,0.5)",
           strokeColor: "rgba(151,187,205,1)",
-          data: [<?php echo $str_temp_m_temperature;?>] //파란색 그래프, 온도 월별 평균
+          //data: [<?php echo $str_temp_m_temperature;?>] //파란색 그래프, 온도 월별 평균
+          data: [28, 48, 40, 19, 96, 27, 100]
         }
       ]
 

@@ -67,7 +67,7 @@
             <div class="container">
                 <ul class="mainnav">
                     <!--                <?php if(strpos($_SERVER['REQUEST_URI'],"/index.php") !== false){?>-->
-                    <li class="active"><a href="index.php"><i class="icon-dashboard"></i><span>모니터링</span> </a></li>
+                    <li th:if="" class="active"><a href="/"><i class="icon-dashboard"></i><span>모니터링</span> </a></li>
                     <!--                <?php } else{ ?>-->
                     <!--                <li><a href="index.php"><i class="icon-dashboard"></i><span>모니터링</span> </a> </li>-->
                     <!--                <?php } ?>-->
@@ -77,8 +77,8 @@
                         <i class="icon-group"></i><span>커뮤니티</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <!--<li><a href="icons.html">Icons</a></li>-->
-                            <li><a href="editor.php">글쓰기</a></li>
-                            <li><a href="reports.php">게시판</a></li>
+                            <li><a href="/editor">글쓰기</a></li>
+                            <li><a href="/community">게시판</a></li>
                         </ul>
                     </li>
                     <!--                <?php } else{ ?>-->
@@ -92,7 +92,7 @@
                     <!--                <?php } ?>-->
 
                     <!--                <?php if(strpos($_SERVER['REQUEST_URI'],"/browse") !== false){?>-->
-                    <li class="active"><a href="browse.php"><i class="icon-leaf"></i><span>찾아보기</span> </a></li>
+                    <li class="active"><a href="/information"><i class="icon-leaf"></i><span>찾아보기</span> </a></li>
                     <!--                <?php } else{ ?>-->
                     <!--                <li><a href="browse.php"><i class="icon-leaf"></i><span>찾아보기</span> </a></li>-->
                     <!--                <?php } ?>-->
@@ -102,10 +102,10 @@
                         <i class="icon-comments-alt"></i><span>고객센터</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <!--<li><a href="icons.html">Icons</a></li>-->
-                            <li><a href="/notice.php">공지사항</a></li>
-                            <li><a href="guidely.php">제품 사용설명서</a></li>
-                            <li><a href="faq.php">자주 묻는 질문</a></li>
-                            <li><a href="qna.php">1:1 문의하기</a></li>
+                            <li><a href="/notice">공지사항</a></li>
+                            <li><a href="/guidely">제품 사용설명서</a></li>
+                            <li><a href="/faq">자주 묻는 질문</a></li>
+                            <li><a href="/qna">1:1 문의하기</a></li>
                         </ul>
                     </li>
                     <!--                <?php } else{ ?>-->
