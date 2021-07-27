@@ -2,8 +2,6 @@
 <html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layouts/layout}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
   <link href="/css/pages/faq.css" rel="stylesheet">
   <script src="/js/faq.js"></script>
 
@@ -71,11 +69,11 @@ $(function () {
             <div class="widget-header">
               <i class="icon-exclamation-sign"></i>
               <h3>자주 묻는 질문들</h3>
-              <?php if($userid == "admin"){?>
-              <div class="btn-container">
-                <button class="btn btn-primary" onclick="location.href='notice_write.php?page=faq'">작성하기</button>
-              </div>
-              <?php }?>
+<!--              <?php if($userid == "admin"){?>-->
+<!--              <div class="btn-container">-->
+<!--                <button class="btn btn-primary" onclick="location.href='notice_write.php?page=faq'">작성하기</button>-->
+<!--              </div>-->
+<!--              <?php }?>-->
             </div> <!-- /widget-header -->
 
             <div class="widget-content">
@@ -86,27 +84,27 @@ $(function () {
 
               <ol class="faq-list">
 
-                <?php
-                                for($i=0;$i<$total_record;$i++){
-                                    mysqli_data_seek($result,$i);
-                                    $row=mysqli_fetch_array($result);
-                                    $num=$row['num'];
-                                    $title=$row['title'];
-                                    $content=$row['content'];
-                                    $notice_num = $i + 1;
-                            ?>
+<!--                <?php-->
+<!--                                for($i=0;$i<$total_record;$i++){-->
+<!--                                    mysqli_data_seek($result,$i);-->
+<!--                                    $row=mysqli_fetch_array($result);-->
+<!--                                    $num=$row['num'];-->
+<!--                                    $title=$row['title'];-->
+<!--                                    $content=$row['content'];-->
+<!--                                    $notice_num = $i + 1;-->
+<!--                            ?>-->
                 <li class="list">
-                  <h4><?=$title?></h4>
-                  <p><?=$content?></p>
-                  <?php if($userid == "admin"){?>
-                  <div class="btn-container2">
-                    <button class="btn btn-primary faq-btn" onclick="location.href='notice_write.php?page=faq&&mode=update&&num=<?=$num?>'">수정</button>
-                    <button class="btn btn-primary faq-btn" onclick="location.href='db/faq.php?sql_mode=delete&&num=<?=$num?>'">삭제</button>
-                  </div>
-                  <?php }?>
+                  <h4>자주 묻는 질문 1</h4>
+                  <p>자주 묻는 질문에 대한 답변</p>
+<!--                  <?php if($userid == "admin"){?>-->
+<!--                  <div class="btn-container2">-->
+<!--                    <button class="btn btn-primary faq-btn" onclick="location.href='notice_write.php?page=faq&&mode=update&&num=<?=$num?>'">수정</button>-->
+<!--                    <button class="btn btn-primary faq-btn" onclick="location.href='db/faq.php?sql_mode=delete&&num=<?=$num?>'">삭제</button>-->
+<!--                  </div>-->
+<!--                  <?php }?>-->
 
                 </li>
-                <?php }?>
+<!--                <?php }?>-->
 
               </ol>
 

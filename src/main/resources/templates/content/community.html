@@ -2,128 +2,92 @@
 <html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layouts/layout}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-  <link href="/css/pages/reports.css" rel="stylesheet">
-  <link href="/css/community_styles.css" rel="stylesheet" />
+    <link href="/css/pages/reports.css" rel="stylesheet">
+    <link href="/css/community_styles.css" rel="stylesheet"/>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Core theme JS-->
-  <script src="/js/scripts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/js/scripts.js"></script>
 </head>
 <div layout:fragment="content" class="main">
-  <div class="main-inner">
-    <div class="container">
-      <div class="row">
-        <div class="span12">
-          <div class="info-box">
-            <div class="row-fluid stats-box">
-              <!--정보입력-->
-              <div class="container2">
-                <div class="row">
-                  <!-- Blog entries-->
-                  <div class="col-md-8">
-                    <h1 class="my-4">
-                      자유게시판
-                      <small>작물부터 재배 꿀팁까지 정보를 나눠보세요!</small>
-                    </h1>
-                    <!-- Blog post-->
-                    <?php
-                                                for($i=0; $i<$total_record; $i++){
-                                                    mysqli_data_seek($result, $i);
-                                                    $row = mysqli_fetch_array($result);
-                                                    $num=$row['num'];
-                                                    $title=$row['subject'];
-                                                    $id=$row['id'];
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="info-box">
+                        <div class="row-fluid stats-box">
+                            <!--정보입력-->
+                            <div class="container2">
+                                <div class="row">
+                                    <!-- Blog entries-->
+                                    <div class="col-md-8">
+                                        <h1 class="my-4">
+                                            자유게시판
+                                            <small>작물부터 재배 꿀팁까지 정보를 나눠보세요!</small>
+                                        </h1>
+                                        <!-- Blog post-->
+                                        <div class="card mb-4">
+                                            <img class="card-img-top" src="../files/<?=$img?>"/>
+                                            <div class="card-body">
+                                                <h2 class="card-title">제목</h2>
+                                                <!--p class="card-text"><//?=$strim?></p-->
+                                                <a class="btn btn-primary" href="#">읽어보기</a>
+                                            </div>
+                                            <div class="card-footer text-muted">
+                                                2021-07-27 by 아이디
+                                            </div>
 
-                                                    $img=$row['hash'];
-                                                    $content=$row['memo'];
-                                                    $date=$row['time'];
+                                        </div>
 
-                                                    $scale = 5;
-                                                    if($total_record % $scale ==0)
-                                                        $total_page=floor($total_record/$scale);
-                                                    else
-                                                        $total_page=floor($total_record/$scale)+1;
+                                        <!-- Blog post-->
+                                        <!-- Pagination-->
+                                        <!-- <ul class="pagination justify-content-center mb-4">
+                                        <li class="page-item"><a class="page-link" href="reports.php?page=$prev">이전 </a></li> -->
 
-                                                    if(!$page)
-                                                        $page=1;
+                                        <!--                                        </ul>-->
+                                    </div>
+                                    <!--Side widgets -->
+                                    <div class="col-md-4">
+                                        <!--검색 수정중 -->
+                                        <div class="card my-4">
+                                            <form action="reports.php?mode=search" method="post" name="search">
+                                                <h5 class="card-header">검색</h5>
+                                                <!--                                                <form action="#" method="GET">-->
+                                                <div class="card-body">
+                                                    <div class="input-group">
+                                                        <input class="form-control" type="text"
+                                                               placeholder="Search for..." name="search_input"/>
+                                                        <span class="input-group-append" required="require"><button
+                                                                class="btn btn-secondary"
+                                                                type="submit">검색</button></span>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
 
-                                                    $start=($page-1) * $scale;
-                                                    $number=$total_record-$start;
-                                            ?>
-                    <div class="card mb-4">
+                                        <!-- Side widget-->
+                                        <div class="card my-4">
+                                            <h5 class="card-header">공지사항</h5>
+                                            <div class="card-body"><!--<?//=$notice_num."." .$title2?>-->
+                                                1. 공지사항1 <br/>
+                                                2. 공지사항2
+                                            </div>
+                                        </div>
 
-                      <?php
-                                                if($img!=''){?>
-                      <img class="card-img-top" src="../files/<?=$img?>"/>
-                      <?}?>
-                      <div class="card-body">
-                        <h2 class="card-title"><?=$title?></h2>
-                        <!--p class="card-text"><//?=$strim?></p-->
-                        <a class="btn btn-primary" href="reports1-1.php?num=<?=$num?>">읽어보기</a>
-                      </div>
-                      <div class="card-footer text-muted">
-                        <?=$date?> by <a><?=$id?></a>
-                      </div>
+                                        <div class="card my-4">
+                                            <h5 class="card-header">커뮤니티 유의사항</h5>
+                                            <div class="card-body">다른 이용자들에게 불쾌감을 주는 언행은 삼가합시다.</div>
+                                        </div>
 
-                    </div>
-                    <?}?>
-
-
-
-                    <!-- Blog post-->
-                    <!-- Pagination-->
-                    <!-- <ul class="pagination justify-content-center mb-4">
-                    <li class="page-item"><a class="page-link" href="reports.php?page=$prev">이전 </a></li> -->
-
-                    </ul>
-                  </div>
-                  <!--Side widgets -->
-                  <div class="col-md-4">
-
-                    <!--검색 수정중 -->
-                    <div class="card my-4">
-                      <form action="reports.php?mode=search" method="post" name="search">
-                        <h5 class="card-header">검색</h5>
-                        <form action="#" method="GET">
-                          <div class="card-body">
-                            <div class="input-group">
-                              <input class="form-control" type="text" placeholder="Search for..." name="search_input" />
-                              <span class="input-group-append" required="require"><button class="btn btn-secondary" type="submit">검색</button></span>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                        </form>
+                        </div>
                     </div>
-
-                    <!-- Side widget-->
-
-                    <div class="card my-4">
-                      <h5 class="card-header">공지사항</h5>
-                      <?php
-                                            for($i=0; $i<$total_record2;$i++){
-                                                mysqli_data_seek($result2,$i);
-                                                $row2=mysqli_fetch_array($result2);
-                                                $notice_num=$i+1;
-                                                $title2=$row2['title'];
-
-                                        ?>
-                      <div class="card-body"><?=$notice_num."." .$title2?>
-                      </div><?}?>
-                    </div>
-                    <div class="card my-4">
-                      <h5 class="card-header">커뮤니티 유의사항</h5>
-                      <div class="card-body">다른 이용자들에게 불쾌감을 주는 언행은 삼가합시다.</div>
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div> <!-- /container -->
-  </div> <!-- /main-inner -->
+        </div> <!-- /container -->
+    </div> <!-- /main-inner -->
 </div> <!-- /main -->
 </html>

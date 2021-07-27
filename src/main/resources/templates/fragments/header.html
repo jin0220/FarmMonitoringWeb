@@ -16,7 +16,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <a class="brand" href="index.php">우리집 앞마당 모니터링</a>
+                <a class="brand" href="/">우리집 앞마당 모니터링</a>
                 <div class="nav-collapse">
                     <ul class="nav pull-right">
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
@@ -66,59 +66,43 @@
         <div class="subnavbar-inner">
             <div class="container">
                 <ul class="mainnav">
-                    <!--                <?php if(strpos($_SERVER['REQUEST_URI'],"/index.php") !== false){?>-->
-                    <li th:if="" class="active"><a href="/"><i class="icon-dashboard"></i><span>모니터링</span> </a></li>
-                    <!--                <?php } else{ ?>-->
-                    <!--                <li><a href="index.php"><i class="icon-dashboard"></i><span>모니터링</span> </a> </li>-->
-                    <!--                <?php } ?>-->
+                    <li th:if="${category} == 1" class="active"><a href="/"><i class="icon-dashboard"></i><span>모니터링</span> </a></li>
+                    <li th:unless="${category} == 1"><a href="/"><i class="icon-dashboard"></i><span>모니터링</span> </a> </li>
 
-                    <!--                <?php if(strpos($_SERVER['REQUEST_URI'],"/reports.php") !== false){?>-->
-                    <li class="active dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                    <li th:if="${category} == 2" class="active dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="icon-group"></i><span>커뮤니티</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <!--<li><a href="icons.html">Icons</a></li>-->
                             <li><a href="/editor">글쓰기</a></li>
                             <li><a href="/community">게시판</a></li>
                         </ul>
                     </li>
-                    <!--                <?php } else{ ?>-->
-                    <!--                <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-group"></i><span>커뮤니티</span> <b class="caret"></b></a>-->
-                    <!--                    <ul class="dropdown-menu">-->
-                    <!--                        &lt;!&ndash;<li><a href="icons.html">Icons</a></li>&ndash;&gt;-->
-                    <!--                        <li><a href="editor.php">글쓰기</a></li>-->
-                    <!--                        <li><a href="reports.php">게시판</a></li>-->
-                    <!--                    </ul>-->
-                    <!--                </li>-->
-                    <!--                <?php } ?>-->
+                    <li th:unless="${category} == 2" class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-group"></i><span>커뮤니티</span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/editor">글쓰기</a></li>
+                            <li><a href="/community">게시판</a></li>
+                        </ul>
+                    </li>
 
-                    <!--                <?php if(strpos($_SERVER['REQUEST_URI'],"/browse") !== false){?>-->
-                    <li class="active"><a href="/information"><i class="icon-leaf"></i><span>찾아보기</span> </a></li>
-                    <!--                <?php } else{ ?>-->
-                    <!--                <li><a href="browse.php"><i class="icon-leaf"></i><span>찾아보기</span> </a></li>-->
-                    <!--                <?php } ?>-->
+                    <li th:if="${category} == 3"class="active"><a href="/information"><i class="icon-leaf"></i><span>찾아보기</span> </a></li>
+                    <li th:unless="${category} == 3"><a href="/information"><i class="icon-leaf"></i><span>찾아보기</span> </a></li>
 
-                    <!--                <?php if(strpos($_SERVER['REQUEST_URI'],"/notice.php" || "/guidely.php" || "faq.php" || "qna.php") !== false){?>-->
-                    <li class="active dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                    <li th:if="${category} == 4" class="active dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="icon-comments-alt"></i><span>고객센터</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <!--<li><a href="icons.html">Icons</a></li>-->
                             <li><a href="/notice">공지사항</a></li>
                             <li><a href="/guidely">제품 사용설명서</a></li>
                             <li><a href="/faq">자주 묻는 질문</a></li>
                             <li><a href="/qna">1:1 문의하기</a></li>
                         </ul>
                     </li>
-                    <!--                <?php } else{ ?>-->
-                    <!--                <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-comments-alt"></i><span>고객센터</span> <b class="caret"></b></a>-->
-                    <!--                    <ul class="dropdown-menu">-->
-                    <!--                        &lt;!&ndash;<li><a href="icons.html">Icons</a></li>&ndash;&gt;-->
-                    <!--                        <li><a href="/notice.php">공지사항</a></li>-->
-                    <!--                        <li><a href="guidely.php">제품 사용설명서</a></li>-->
-                    <!--                        <li><a href="faq.php">자주 묻는 질문</a></li>-->
-                    <!--                        <li><a href="qna.php">1:1 문의하기</a></li>-->
-                    <!--                    </ul>-->
-                    <!--                </li>-->
-                    <!--                <?php } ?>-->
+                    <li th:unless="${category} == 4" class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-comments-alt"></i><span>고객센터</span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/notice">공지사항</a></li>
+                            <li><a href="/guidely">제품 사용설명서</a></li>
+                            <li><a href="/faq">자주 묻는 질문</a></li>
+                            <li><a href="/qna">1:1 문의하기</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <!-- /container -->
