@@ -1,14 +1,10 @@
 package com.example.FarmMonitoringWeb.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Data;
 
-@Entity
-@Table(name = "user")
-public class Member {
+@Data
+public class User {
 
-    @Id
     private String id;
     private String name;
     private String password;
